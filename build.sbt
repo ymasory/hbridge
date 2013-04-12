@@ -9,7 +9,7 @@ startYear := Some(2012)
 scalaVersion := "2.9.2"
 
 crossScalaVersions := Seq(
-  "2.9.3",
+  // "2.9.3",
   "2.9.2",
   "2.9.1", "2.9.1-1",
   "2.9.0", "2.9.0-1",
