@@ -38,7 +38,7 @@ object HBridge extends Logging {
     new HBridge(hbridgeConfig.htablePool, tableName)
   }
 
-  def deleteAllConnections = HBridge.terminateClient()
+  def deleteAllConnections() = HBridge.terminateClient()
 
   def terminateClient() { HConnectionManager.deleteAllConnections(true) }
 
@@ -209,11 +209,11 @@ class HBridge(htablePool: Option[HTablePool], tableName: String) extends Logging
   val table: HTable = htablePool.get.getTable(tableName).asInstanceOf[HTable]
   def closeTablePool(tableName: String) = if (!htablePool.eq(None)) htablePool.get.closeTablePool(tableName)
   //def putTable = htablePool.get.putTable(table)
-  def putTable = table.close
+  def putTable() = table.close
   def setAutoFlush(flushState: Boolean) = table.setAutoFlush(flushState)
   def isAutoFlush: Boolean = table.isAutoFlush
-  def commit = table.flushCommits()
-  def returnToPool = table.close();
+  def commit() = table.flushCommits()
+  def returnToPool() = table.close();
   /*
   Regex Variables to type Inference based on Value in a Typed Map with values normalized to Strings a.k.a Map[String,String]
   */
