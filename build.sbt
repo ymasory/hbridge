@@ -1,11 +1,23 @@
-organization := "com.cloudphysics"
-
+/* basic project info */
 name := "hbridge"
+
+organization := "com.cloudphysics"
 
 version := "0.1.0-SNAPSHOT"
 
 startYear := Some(2012)
 
+homepage := Some(url("https://github.com/cphylabs/hbridge"))
+
+scmInfo := Some(
+  ScmInfo(
+    url("https://github.com/cphylabs/hbridge"),
+    "scm:git:https://github.com/cphylabs/hbridge.git",
+    Some("scm:git:git@github.com:cphylabs/hbridge.git")
+  )
+)
+
+/* scala options */
 scalaVersion := "2.9.2"
 
 crossScalaVersions := Seq(
@@ -70,8 +82,34 @@ libraryDependencies in Test ++= Seq(
   "ch.qos.logback" % "logback-classic" % "1.0.7"
 )
 
+/* sbt behavior */
 logLevel in compile := Level.Warn
 
 traceLevel := 5
 
 offline := false
+
+/* publishing */
+publishMavenStyle := true
+
+publishTo <<= version { (v: String) =>
+  val nexus = "https://oss.sonatype.org/"
+  if (v.trim.endsWith("SNAPSHOT")) Some(
+    "snapshots" at nexus + "content/repositories/snapshots"
+  )
+  else Some("releases" at nexus + "service/local/staging/deploy/maven2")
+}
+
+publishArtifact in Test := false
+
+pomIncludeRepository := { _ => false }
+
+pomExtra := (
+  <developers>
+    <developer>
+      <id>cphylabs</id>
+      <name>CloudPhysics Inc</name>
+      <email>opensource@cloudphysics.com</email>
+    </developer>
+  </developers>
+)
