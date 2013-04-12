@@ -7,6 +7,10 @@ version := "0.1.0-SNAPSHOT"
 
 startYear := Some(2012)
 
+licenses := Seq(
+  ("The MIT License", url("http://opensource.org/licenses/MIT"))
+)
+
 homepage := Some(url("https://github.com/cphylabs/hbridge"))
 
 scmInfo := Some(
