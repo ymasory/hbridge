@@ -73,8 +73,12 @@ libraryDependencies ++= Seq(
   "org.joda"            % "joda-convert"   % "1.3.1"
 )
 
+libraryDependencies <+= scalaVersion { sv =>
+  val version = if (sv startsWith "2.10") "1.0.1" else "0.6.10"
+  "org.clapper" %% "grizzled-slf4j" % version
+}
+
 libraryDependencies ++= Seq(
-  "org.clapper"    %% "grizzled-slf4j" % "0.6.10",
   "ch.qos.logback" % "logback-classic" % "1.0.7" % "provided"
 )
 
