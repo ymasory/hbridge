@@ -1,8 +1,8 @@
-package com.cloudphysics.data
+package com.cloudphysics.hbridge
 
-import org.apache.hadoop.hbase.client.HTablePool
 import org.apache.hadoop.conf.Configuration
 import org.apache.hadoop.hbase.HBaseConfiguration
+import org.apache.hadoop.hbase.client.HTablePool
 
 object DataType extends Enumeration {
   type DataType = Value

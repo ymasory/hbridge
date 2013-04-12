@@ -1,15 +1,18 @@
-package com.cloudphysics.data
+package com.cloudphysics.hbridge
 
 import scala.collection.JavaConversions._
+
 import org.apache.hadoop.conf.Configuration
+
+import org.apache.hadoop.hbase.{ HBaseConfiguration, HTableDescriptor, HColumnDescriptor, KeyValue }
 import org.apache.hadoop.hbase.util.Bytes
 import org.apache.hadoop.hbase.client._
+import org.apache.hadoop.hbase.filter._
+
 import org.joda.time.{ DateTime, DateTimeZone }
 import org.joda.time.format.ISODateTimeFormat
-import org.apache.hadoop.hbase.{ HBaseConfiguration, HTableDescriptor, HColumnDescriptor }
-import org.apache.hadoop.hbase.filter._
+
 import grizzled.slf4j.Logging
-import org.apache.hadoop.hbase.KeyValue
 
 object Benchmark extends Logging {
   def time(description: String)(f: => Unit) = {
