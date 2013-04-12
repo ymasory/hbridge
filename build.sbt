@@ -3,7 +3,7 @@ name := "hbridge"
 
 organization := "com.cloudphysics"
 
-version := "0.1.0-SNAPSHOT"
+version := "2.0.0-SNAPSHOT"
 
 startYear := Some(2012)
 
