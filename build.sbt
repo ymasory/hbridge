@@ -41,14 +41,14 @@ scalacOptions ++= Seq(
 
 scalacOptions ++= Seq(
   "-Yclosure-elim",
-  "-Yinline",
+  "-Yinline"
   // "-Yno-adapted-args",
-  "-Ywarn-all"
+  // "-Ywarn-all"
 )
 
 scalacOptions ++= Seq(
-  "-Xfatal-warnings",
-  "-Xverify"
+  "-Xfatal-warnings"
+  // "-Xverify"
   // "-feature"
   // "-language:postfixOps",
   // "-language:reflectiveCalls",
@@ -70,11 +70,11 @@ libraryDependencies ++= Seq(
   ("org.apache.hbase"   % "hbase"          % "0.92.1-cdh4.0.1").exclude("org.slf4j", "slf4j-log4j12").exclude("org.slf4j", "slf4j-api"),
   ("org.apache.hadoop"  % "hadoop-client"  % "2.0.0-cdh4.0.1").exclude("org.slf4j", "slf4j-log4j12").exclude("org.slf4j", "slf4j-api"),
   "joda-time"           % "joda-time"      % "2.2",
-  "org.joda"            % "joda-convert"   % "1.3.1",
-  "org.clapper"        %% "grizzled-slf4j" % "0.6.10"
+  "org.joda"            % "joda-convert"   % "1.3.1"
 )
 
 libraryDependencies ++= Seq(
+  "org.clapper"    %% "grizzled-slf4j" % "0.6.10",
   "ch.qos.logback" % "logback-classic" % "1.0.7" % "provided"
 )
 
